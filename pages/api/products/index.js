@@ -17,7 +17,9 @@ await dbConnect();
         }
     }
     if(method === "POST"){
-        if(!token || token !== process.env.token){
+        console.log("token receieved: ", token);
+        console.log("token set: ", process.env.TOKEN)
+        if(!token || token !== process.env.TOKEN){
             return res.status(401).json("Not authenticated!")
         }
         try {
