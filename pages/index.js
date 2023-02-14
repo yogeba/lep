@@ -33,8 +33,9 @@ export const getServerSideProps = async (ctx) => {
     admin = true;
   }
 
+  const dev = process.env.NODE_ENV !== 'production';
 
-  const res = await axios.get("/api/products");
+  const res = await axios.get(`${dev ? 'http://' : 'https://'}${ctx.req.headers.host}/api/products`);
   return {
     props:{
       pizzaList: res.data,
