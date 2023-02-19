@@ -32,7 +32,7 @@ export const getServerSideProps = async (ctx) => {
   if(myCookie.token === process.env.TOKEN){
     admin = true;
   }
-
+  
   const dev = process.env.NODE_ENV !== 'production';
 
   const res = await axios.get(`${dev ? 'http://' : 'https://'}${ctx.req.headers.host}/api/products`);
