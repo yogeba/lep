@@ -95,11 +95,11 @@ const Product = ({pizza}) => {
 };
 
 
-export const getServerSideProps = async ({params}) => {
-
+export const getServerSideProps = async (ctx) => {
+  
   const dev = process.env.NODE_ENV !== 'production';
 
-  const res = await axios.get(`${dev ? 'http://localhost:3000' : 'https://lep-nine.vercel.app'}/api/products/${params.id}`);
+  const res = await axios.get(`${dev ? 'http://' : 'https://'}${ctx.req.headers.host}/api/products/${ctx.params.id}`);
   return {
     props:{
       pizza: res.data,
