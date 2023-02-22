@@ -1,5 +1,5 @@
 import styles from "../styles/Featured.module.css";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useState } from "react";
 
 const Featured = () => {
