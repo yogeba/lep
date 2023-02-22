@@ -10,6 +10,11 @@ const Featured = () => {
     "/img/featured3.png",
   ];
 
+  const loaderProp =({ src }) => {
+    return src;
+}
+
+
   const handleArrow = (direction) =>{
       if(direction==="l"){
           setIndex(index !== 0 ? index-1 : 2)
@@ -27,7 +32,7 @@ const Featured = () => {
       <div className={styles.wrapper} style={{transform:`translateX(${-100*index}vw)`}}>
         {images.map((img, i) => (
           <div className={styles.imgContainer} key={i}>
-            <Image src={img} alt="" loader={myLoader} layout="fill" objectFit="contain" />
+            <Image src={img} alt=""  layout="fill" objectFit="contain" loader={loaderProp} />
           </div>
         ))}
       </div>
